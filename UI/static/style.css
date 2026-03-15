@@ -1,0 +1,74 @@
+/* Layout */
+body {
+    margin: 0;
+    display: flex;
+    background: #f7f7f7;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: #0d6efd;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #004ad9;
+}
+
+.logo {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Main content */
+.main-content {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+section {
+    display: none;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.predict-card {
+    width: 350px;
+    margin-top: 20px;
+}
+
+/* DARK MODE */
+.dark-mode {
+    background: #151515;
+    color: #eeeeee;
+}
+
+.dark-mode .sidebar {
+    background: #222;
+}
+
+.dark-mode .sidebar a:hover {
+    background: #333;
+}
+
+.dark-mode .predict-card {
+    background: #222;
+    color: white;
+}

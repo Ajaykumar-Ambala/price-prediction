@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Test Home Price API</h3>
+
+<input id="sqft" placeholder="Total Sqft"><br><br>
+<input id="loc" placeholder="Location"><br><br>
+<input id="bhk" placeholder="BHK"><br><br>
+<input id="bath" placeholder="Bath"><br><br>
+
+<button type="button" onclick="predictPrice()">Predict</button>
+
+<p id="result"></p>
+
+<script>
+function sendRequest() {
+    let formData = new FormData();
+    formData.append("total_sqft", document.getElementById("sqft").value);
+    formData.append("location", document.getElementById("loc").value);
+    formData.append("bhk", document.getElementById("bhk").value);
+    formData.append("bath", document.getElementById("bath").value);
+
+    fetch("http://127.0.0.1:5000/predict_home_price", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("result").innerText = "Price = " + data.estimated_price;
+    })
+    .catch(err => console.log("Error:", err));
+}
+</script>
+
+</body>
+</html>
